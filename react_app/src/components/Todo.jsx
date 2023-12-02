@@ -47,3 +47,4 @@ export default function Todo(){
     </div>
   )
 }
+\n// Dec: persist todos to localStorage (tweak)
