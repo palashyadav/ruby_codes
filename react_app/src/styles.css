@@ -10,3 +10,4 @@ ul{list-style:none;padding:0;margin:0}
 li{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee}
 li.done span{text-decoration:line-through;color:#888}
 .remove{background:transparent;border:0;color:#c00;font-size:18px}
+\n/* Dec: polish spacing */
