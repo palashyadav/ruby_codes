@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Todo from './components/Todo'
+import Notes from './components/Notes'
 
 export default function App(){
   const [view, setView] = useState('todos')
@@ -13,7 +14,7 @@ export default function App(){
         </nav>
       </header>
       <main>
-        {view === 'todos' ? <Todo /> : <div className="notes">Notes - simple placeholder with local storage support.</div>}
+        {view === 'todos' ? <Todo /> : <Notes />}
       </main>
     </div>
   )

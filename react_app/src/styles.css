@@ -10,4 +10,11 @@ ul{list-style:none;padding:0;margin:0}
 li{display:flex;align-items:center;justify-content:space-between;padding:8px 0;border-bottom:1px solid #eee}
 li.done span{text-decoration:line-through;color:#888}
 .remove{background:transparent;border:0;color:#c00;font-size:18px}
-\n/* Dec: polish spacing */
+
+/* Dec: styles for notes and controls */
+.controls{display:flex;justify-content:flex-end;margin-bottom:8px}
+.controls .danger{background:#fee; border:1px solid #fbb; padding:6px 10px; border-radius:4px}
+.row-actions{display:flex;align-items:center}
+li .remove{margin-left:8px}
+
+/* Dec: polish spacing */

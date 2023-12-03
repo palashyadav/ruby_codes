@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 export default function Todo(){
   const [items, setItems] = useState([])
   const [text, setText] = useState('')
+  const [editingId, setEditingId] = useState(null)
+  const [editText, setEditText] = useState('')
 
   useEffect(() => {
     const saved = localStorage.getItem('mini_todos')
@@ -27,24 +29,47 @@ export default function Todo(){
     setItems(prev => prev.filter(i => i.id !== id))
   }
 
+  function removeAll(){
+    setItems([])
+  }
+
+  function startEdit(item){
+    setEditingId(item.id)
+    setEditText(item.text)
+  }
+
+  function saveEdit(id){
+    setItems(prev => prev.map(i => i.id === id ? {...i, text: editText} : i))
+    setEditingId(null)
+    setEditText('')
+  }
+
   return (
     <div className="todo">
       <div className="input-row">
         <input value={text} onChange={e => setText(e.target.value)} placeholder="Add todo..." />
         <button onClick={add}>Add</button>
       </div>
+      <div className="controls">
+        <button onClick={removeAll} className="danger">Remove All</button>
+      </div>
       <ul>
         {items.map(i => (
           <li key={i.id} className={i.done ? 'done' : ''}>
             <label>
               <input type="checkbox" checked={i.done} onChange={() => toggle(i.id)} />
-              <span>{i.text}</span>
+              {editingId === i.id ? (
+                <input value={editText} onChange={e => setEditText(e.target.value)} onBlur={() => saveEdit(i.id)} />
+              ) : (
+                <span onDoubleClick={() => startEdit(i)}>{i.text}</span>
+              )}
             </label>
-            <button className="remove" onClick={() => remove(i.id)}>×</button>
+            <div className="row-actions">
+              <button className="remove" onClick={() => remove(i.id)}>×</button>
+            </div>
           </li>
         ))}
       </ul>
     </div>
   )
 }
-\n// Dec: persist todos to localStorage (tweak)
