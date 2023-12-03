@@ -13,7 +13,7 @@ export default function App(){
         </nav>
       </header>
       <main>
-        {view === 'todos' ? <Todo /> : <div className="notes">Notes coming soon.</div>}
+        {view === 'todos' ? <Todo /> : <div className="notes">Notes - simple placeholder with local storage support.</div>}
       </main>
     </div>
   )
