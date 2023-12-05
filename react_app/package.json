@@ -1,6 +1,7 @@
 {
   "name": "mini-react-app",
-  "version": "0.1.0",
+  "version": "0.1.1",
+  "description": "Mini React App (todos + notes)",
   "private": true,
   "scripts": {
     "start": "vite",

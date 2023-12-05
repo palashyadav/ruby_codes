@@ -44,6 +44,10 @@ export default function Todo(){
     setEditText('')
   }
 
+  function clearCompleted(){
+    setItems(prev => prev.filter(i => !i.done))
+  }
+
   return (
     <div className="todo">
       <div className="input-row">

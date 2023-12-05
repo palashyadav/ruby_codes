@@ -4,4 +4,5 @@ import App from './App'
 import './styles.css'
 
 const root = createRoot(document.getElementById('root'))
+console.log('Mini React App (dev)')
 root.render(<App />)
