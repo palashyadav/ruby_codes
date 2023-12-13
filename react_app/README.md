@@ -12,6 +12,8 @@ This project uses Vite + React.
 
 - Dec: progress notes: added Notes component, edit-in-place, and remove-all feature
 
+- Dec: UI polish and accessibility tweaks added
+
 Run locally:
 
 1. `npm install`
