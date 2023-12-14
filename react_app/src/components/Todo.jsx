@@ -39,7 +39,7 @@ export default function Todo(){
   }
 
   function saveEdit(id){
-    setItems(prev => prev.map(i => i.id === id ? {...i, text: editText} : i))
+    setItems(prev => prev.map(i => i.id === id ? {...i, text: editText.trim()} : i))
     setEditingId(null)
     setEditText('')
   }
@@ -77,3 +77,5 @@ export default function Todo(){
     </div>
   )
 }
+
+export function debug_dummy() { return true }
