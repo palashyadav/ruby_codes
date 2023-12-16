@@ -9,8 +9,8 @@ export default function App(){
       <header>
         <h1>Mini React App</h1>
         <nav>
-          <button onClick={() => setView('todos')}>Todos</button>
-          <button onClick={() => setView('notes')}>Notes</button>
+          <button onClick={() => setView('todos')} aria-label="Show todos">Todos</button>
+          <button onClick={() => setView('notes')} aria-label="Show notes">Notes</button>
         </nav>
       </header>
       <main>
