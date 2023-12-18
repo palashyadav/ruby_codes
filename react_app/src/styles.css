@@ -22,3 +22,7 @@ li .remove{margin-left:8px}
 .todo button:hover{opacity:0.95}
 
 /* Dec: polish spacing */
+@media (max-width:480px){
+	.app{margin:12px;padding:12px}
+	.todo input{padding:6px}
+}
