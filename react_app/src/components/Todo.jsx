@@ -61,7 +61,7 @@ export default function Todo(){
         {items.map(i => (
           <li key={i.id} className={i.done ? 'done' : ''}>
             <label>
-              <input type="checkbox" checked={i.done} onChange={() => toggle(i.id)} />
+              <input type="checkbox" aria-label={"Mark " + i.text + " done"} checked={i.done} onChange={() => toggle(i.id)} />
               {editingId === i.id ? (
                 <input value={editText} onChange={e => setEditText(e.target.value)} onBlur={() => saveEdit(i.id)} />
               ) : (
