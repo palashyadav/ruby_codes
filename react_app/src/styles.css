@@ -26,3 +26,6 @@ li .remove{margin-left:8px}
 	.app{margin:12px;padding:12px}
 	.todo input{padding:6px}
 }
+
+/* Dec 24: final polish */
+.todo .input-row input{border-color:#ccc}
