@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { load, save } from '../utils/storage'
 
 export default function Todo(){
   const [items, setItems] = useState([])
@@ -7,12 +8,12 @@ export default function Todo(){
   const [editText, setEditText] = useState('')
 
   useEffect(() => {
-    const saved = localStorage.getItem('mini_todos')
-    if (saved) setItems(JSON.parse(saved))
+    const saved = load('mini_todos', [])
+    if (saved) setItems(saved)
   }, [])
 
   useEffect(() => {
-    localStorage.setItem('mini_todos', JSON.stringify(items))
+    save('mini_todos', items)
   }, [items])
 
   function add(){
