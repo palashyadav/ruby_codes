@@ -32,7 +32,7 @@ export default function Notes(){
       <ul>
         {notes.map(n => (
           <li key={n.id}>
-            <div>{n.text}</div>
+            <div onDoubleClick={() => { /* placeholder for edit */ }}>{n.text}</div>
             <button className="remove" onClick={() => remove(n.id)}>×</button>
           </li>
         ))}
