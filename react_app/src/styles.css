@@ -21,6 +21,12 @@ li .remove{margin-left:8px}
 .todo button{background:#007bff;color:#fff;border-radius:4px;border:0}
 .todo button:hover{opacity:0.95}
 
+/* Jan: dark theme */
+.app.dark{background:#111;color:#eee}
+.app.dark .todo input{background:#222;color:#eee;border-color:#333}
+.app.dark .todo button{background:#444}
+.app.dark li{border-bottom-color:#222}
+
 /* Dec: polish spacing */
 @media (max-width:480px){
 	.app{margin:12px;padding:12px}
