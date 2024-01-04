@@ -22,6 +22,10 @@ export default function Todo(){
     setText('')
   }
 
+  function handleKeyAdd(e){
+    if (e.key === 'Enter') add()
+  }
+
   function toggle(id){
     setItems(prev => prev.map(i => i.id === id ? {...i, done: !i.done} : i))
   }
@@ -52,7 +56,7 @@ export default function Todo(){
   return (
     <div className="todo">
       <div className="input-row">
-        <input value={text} onChange={e => setText(e.target.value)} placeholder="Add todo..." />
+          <input value={text} onChange={e => setText(e.target.value)} onKeyDown={handleKeyAdd} placeholder="Add todo..." />
         <button onClick={add}>Add</button>
       </div>
       <div className="controls">
@@ -64,7 +68,7 @@ export default function Todo(){
             <label>
               <input type="checkbox" aria-label={"Mark " + i.text + " done"} checked={i.done} onChange={() => toggle(i.id)} />
               {editingId === i.id ? (
-                <input value={editText} onChange={e => setEditText(e.target.value)} onBlur={() => saveEdit(i.id)} />
+                 <input value={editText} onChange={e => setEditText(e.target.value)} onBlur={() => saveEdit(i.id)} onKeyDown={ev => { if(ev.key==='Enter') saveEdit(i.id); if(ev.key==='Escape'){ setEditingId(null); setEditText('') } }} />
               ) : (
                 <span onDoubleClick={() => startEdit(i)}>{i.text}</span>
               )}
