@@ -3,6 +3,8 @@ import React, { useState, useEffect } from 'react'
 export default function Notes(){
   const [notes, setNotes] = useState([])
   const [text, setText] = useState('')
+  const [editingId, setEditingId] = useState(null)
+  const [editText, setEditText] = useState('')
 
   useEffect(() => {
     const saved = localStorage.getItem('mini_notes')
@@ -23,6 +25,9 @@ export default function Notes(){
     setNotes(prev => prev.filter(n => n.id !== id))
   }
 
+  function startEdit(n){ setEditingId(n.id); setEditText(n.text) }
+  function saveEdit(id){ setNotes(prev => prev.map(x => x.id === id ? {...x, text: editText.trim()} : x)); setEditingId(null); setEditText('') }
+
   return (
     <div className="notes">
       <div className="input-row">
@@ -32,7 +37,11 @@ export default function Notes(){
       <ul>
         {notes.map(n => (
           <li key={n.id}>
-            <div onDoubleClick={() => { /* placeholder for edit */ }}>{n.text}</div>
+            {editingId === n.id ? (
+              <input value={editText} onChange={e => setEditText(e.target.value)} onBlur={() => saveEdit(n.id)} onKeyDown={ev => { if(ev.key==='Enter') saveEdit(n.id); if(ev.key==='Escape'){ setEditingId(null); setEditText('') } }} />
+            ) : (
+              <div onDoubleClick={() => startEdit(n)}>{n.text}</div>
+            )}
             <button className="remove" onClick={() => remove(n.id)}>×</button>
           </li>
         ))}
