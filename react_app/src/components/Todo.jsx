@@ -56,7 +56,7 @@ export default function Todo(){
   return (
     <div className="todo">
       <div className="input-row">
-          <input value={text} onChange={e => setText(e.target.value)} onKeyDown={handleKeyAdd} placeholder="Add todo..." />
+          <input id="todo-input" value={text} onChange={e => setText(e.target.value)} onKeyDown={handleKeyAdd} placeholder="Add todo..." />
         <button onClick={add}>Add</button>
       </div>
       <div className="controls">
