@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import { load, save } from '../utils/storage'
 
 export default function Todo(){
@@ -16,23 +16,23 @@ export default function Todo(){
     save('mini_todos', items)
   }, [items])
 
-  function add(){
+  const add = useCallback(() => {
     if (!text.trim()) return
     setItems(prev => [...prev, { id: Date.now(), text: text.trim(), done: false }])
     setText('')
-  }
+  }, [text])
 
   function handleKeyAdd(e){
     if (e.key === 'Enter') add()
   }
 
-  function toggle(id){
+  const toggle = useCallback((id) => {
     setItems(prev => prev.map(i => i.id === id ? {...i, done: !i.done} : i))
-  }
+  }, [])
 
-  function remove(id){
+  const remove = useCallback((id) => {
     setItems(prev => prev.filter(i => i.id !== id))
-  }
+  }, [])
 
   function removeAll(){
     setItems([])
