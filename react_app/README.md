@@ -26,3 +26,8 @@ Build for production:
 Preview production build:
 
 `npm run preview`
+
+Quick keyboard tips:
+
+- Press `/` to focus the todo input (global shortcut).
+

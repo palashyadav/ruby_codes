@@ -21,6 +21,9 @@ li .remove{margin-left:8px}
 .todo button{background:#007bff;color:#fff;border-radius:4px;border:0}
 .todo button:hover{opacity:0.95}
 
+/* Jan 18: focus-visible outlines for accessibility */
+.todo input:focus, .notes input:focus, button:focus{outline:3px solid rgba(0,123,255,0.16);outline-offset:2px}
+
 /* Jan: dark theme */
 .app.dark{background:#111;color:#eee}
 .app.dark .todo input{background:#222;color:#eee;border-color:#333}
