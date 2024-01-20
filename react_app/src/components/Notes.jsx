@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 export default function Notes(){
   const [notes, setNotes] = useState([])
@@ -15,23 +15,25 @@ export default function Notes(){
     localStorage.setItem('mini_notes', JSON.stringify(notes))
   }, [notes])
 
-  function add(){
+  const add = useCallback(() => {
     if (!text.trim()) return
     setNotes(prev => [{ id: Date.now(), text: text.trim() }, ...prev])
     setText('')
-  }
+  }, [text])
 
-  function remove(id){
+  const handleKeyAdd = useCallback((e) => { if (e.key === 'Enter') add() }, [add])
+
+  const remove = useCallback((id) => {
     setNotes(prev => prev.filter(n => n.id !== id))
-  }
+  }, [])
 
-  function startEdit(n){ setEditingId(n.id); setEditText(n.text) }
-  function saveEdit(id){ setNotes(prev => prev.map(x => x.id === id ? {...x, text: editText.trim()} : x)); setEditingId(null); setEditText('') }
+  const startEdit = useCallback((n) => { setEditingId(n.id); setEditText(n.text) }, [])
+  const saveEdit = useCallback((id) => { setNotes(prev => prev.map(x => x.id === id ? {...x, text: editText.trim()} : x)); setEditingId(null); setEditText('') }, [editText])
 
   return (
     <div className="notes">
       <div className="input-row">
-        <input value={text} onChange={e => setText(e.target.value)} placeholder="Add note..." />
+        <input id="notes-input" aria-label="Add note" value={text} onChange={e => setText(e.target.value)} onKeyDown={handleKeyAdd} placeholder="Add note..." />
         <button onClick={add}>Add</button>
       </div>
       <ul>
