@@ -57,7 +57,7 @@ export default function Todo(){
     <div className="todo">
       <div className="input-row">
           <input id="todo-input" value={text} onChange={e => setText(e.target.value)} onKeyDown={handleKeyAdd} placeholder="Add todo..." />
-        <button onClick={add}>Add</button>
+        <button id="add-todo" aria-label="Add todo" onClick={add}>Add</button>
       </div>
       <div className="controls">
         <button onClick={removeAll} className="danger">Remove All</button>
