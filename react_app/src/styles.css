@@ -29,6 +29,8 @@ li .remove{margin-left:8px}
 .app.dark .todo input{background:#222;color:#eee;border-color:#333}
 .app.dark .todo button{background:#444}
 .app.dark li{border-bottom-color:#222}
+/* Jan 24: subtle dark theme hover polish */
+.app.dark .todo button:hover{opacity:0.92;transform:translateY(-1px)}
 
 /* Dec: polish spacing */
 @media (max-width:480px){
