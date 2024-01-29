@@ -55,6 +55,7 @@ export default function Todo(){
 
   return (
     <div className="todo">
+      <div aria-live="polite" className="sr-only">{items.length} items</div>
       <div className="input-row">
           <input id="todo-input" value={text} onChange={e => setText(e.target.value)} onKeyDown={handleKeyAdd} placeholder="Add todo..." />
         <button id="add-todo" aria-label="Add todo" onClick={add}>Add</button>
