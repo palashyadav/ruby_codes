@@ -12,4 +12,8 @@ document.addEventListener('keydown', (e) => {
 		const el = document.getElementById('todo-input')
 		if (el) { el.focus(); e.preventDefault() }
 	}
+  if (e.key === '?'){
+    const el = document.getElementById('notes-input')
+    if (el) { el.focus(); e.preventDefault() }
+  }
 })
