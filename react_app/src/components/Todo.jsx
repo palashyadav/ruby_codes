@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import { load, save } from '../utils/storage'
 
 export default function Todo(){
@@ -6,6 +6,8 @@ export default function Todo(){
   const [text, setText] = useState('')
   const [editingId, setEditingId] = useState(null)
   const [editText, setEditText] = useState('')
+  const [query, setQuery] = useState('')
+  const [filter, setFilter] = useState('all')
 
   useEffect(() => {
     const saved = load('mini_todos', [])
@@ -15,6 +17,16 @@ export default function Todo(){
   useEffect(() => {
     save('mini_todos', items)
   }, [items])
+
+  const visible = useMemo(() => {
+    const q = query.trim().toLowerCase()
+    return items.filter(i => {
+      if (filter === 'active' && i.done) return false
+      if (filter === 'done' && !i.done) return false
+      if (!q) return true
+      return i.text.toLowerCase().includes(q)
+    })
+  }, [items, query, filter])
 
   const add = useCallback(() => {
     if (!text.trim()) return
