@@ -72,11 +72,20 @@ export default function Todo(){
           <input id="todo-input" value={text} onChange={e => setText(e.target.value)} onKeyDown={handleKeyAdd} placeholder="Add todo..." />
         <button id="add-todo" aria-label="Add todo" onClick={add}>Add</button>
       </div>
+      <div className="input-row">
+        <input id="todo-search" value={query} onChange={e => setQuery(e.target.value)} placeholder="Search todos..." />
+        <select value={filter} onChange={e => setFilter(e.target.value)} aria-label="Filter todos">
+          <option value="all">All</option>
+          <option value="active">Active</option>
+          <option value="done">Done</option>
+        </select>
+      </div>
       <div className="controls">
         <button onClick={removeAll} className="danger">Remove All</button>
+        <button onClick={clearCompleted} style={{marginLeft:8}}>Clear Completed</button>
       </div>
       <ul>
-        {items.map(i => (
+        {visible.map(i => (
           <li key={i.id} className={i.done ? 'done' : ''}>
             <label>
               <input type="checkbox" aria-label={"Mark " + i.text + " done"} checked={i.done} onChange={() => toggle(i.id)} />
