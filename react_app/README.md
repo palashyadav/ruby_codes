@@ -31,3 +31,6 @@ Quick keyboard tips:
 
 - Press `/` to focus the todo input (global shortcut).
 
+- Feb: added search/filter controls to todos and Clear Completed button
+
+
