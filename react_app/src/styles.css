@@ -32,6 +32,11 @@ li .remove{margin-left:8px}
 /* Jan 24: subtle dark theme hover polish */
 .app.dark .todo button:hover{opacity:0.92;transform:translateY(-1px)}
 
+/* Feb 10: small polish - input and select spacing */
+.input-row input, .input-row select{padding:8px;border-radius:6px;border:1px solid #ddd}
+.input-row select{margin-left:8px}
+.controls button{padding:6px 10px}
+
 /* Dec: polish spacing */
 @media (max-width:480px){
 	.app{margin:12px;padding:12px}
