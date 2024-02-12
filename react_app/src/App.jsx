@@ -16,6 +16,7 @@ export default function App(){
     <div className={`app ${theme}`}>
       <header>
         <h1>Mini React App</h1>
+        <div className="kbd-hint" aria-hidden="true">Shortcuts: <kbd>/</kbd> focus todos — <kbd>?</kbd> focus notes</div>
         <nav>
           <button onClick={() => setView('todos')} aria-label="Show todos">Todos</button>
           <button onClick={() => setView('notes')} aria-label="Show notes">Notes</button>
