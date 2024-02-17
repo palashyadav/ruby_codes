@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { capitalize } from './utils/format'
 import Todo from './components/Todo'
 import Notes from './components/Notes'
 
@@ -15,7 +16,7 @@ export default function App(){
   return (
     <div className={`app ${theme}`}>
       <header>
-        <h1>Mini React App</h1>
+        <h1>{capitalize('mini react app')}</h1>
         <div className="kbd-hint" aria-hidden="true">Shortcuts: <kbd>/</kbd> focus todos — <kbd>?</kbd> focus notes</div>
         <nav>
           <button onClick={() => setView('todos')} aria-label="Show todos">Todos</button>
