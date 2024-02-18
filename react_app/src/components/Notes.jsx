@@ -36,9 +36,9 @@ export default function Notes(){
         <input id="notes-input" aria-label="Add note" value={text} onChange={e => setText(e.target.value)} onKeyDown={handleKeyAdd} placeholder="Add note..." />
         <button onClick={add}>Add</button>
       </div>
-      <ul>
+      <ul role="list" aria-label="Notes list">
         {notes.map(n => (
-          <li key={n.id}>
+          <li role="listitem" key={n.id}>
             {editingId === n.id ? (
               <input value={editText} onChange={e => setEditText(e.target.value)} onBlur={() => saveEdit(n.id)} onKeyDown={ev => { if(ev.key==='Enter') saveEdit(n.id); if(ev.key==='Escape'){ setEditingId(null); setEditText('') } }} />
             ) : (

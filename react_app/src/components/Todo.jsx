@@ -84,9 +84,9 @@ export default function Todo(){
         <button onClick={removeAll} className="danger">Remove All</button>
         <button onClick={clearCompleted} style={{marginLeft:8}}>Clear Completed</button>
       </div>
-      <ul>
+      <ul role="list" aria-label="Todo items">
         {visible.map(i => (
-          <li key={i.id} className={i.done ? 'done' : ''}>
+          <li role="listitem" key={i.id} className={i.done ? 'done' : ''}>
             <label>
               <input type="checkbox" aria-label={"Mark " + i.text + " done"} checked={i.done} onChange={() => toggle(i.id)} />
               {editingId === i.id ? (
