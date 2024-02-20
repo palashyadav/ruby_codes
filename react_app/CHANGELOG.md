@@ -13,3 +13,8 @@
  - Dec 01: Initial scaffold
  - Dec 02–Dec 30: incremental UI, notes, accessibility and polish
  - Dec 31: final December polish
+ 
+## 2024-02
+- Feb 02–Feb 08: todo search/filter, Clear Completed, and test additions
+- Feb 10–Feb 15: small UI polish, in-app keyboard hint, version bump, util added
+- Feb 16–Feb 20: add-button polish, a11y list roles, small a11y/ui tweaks
