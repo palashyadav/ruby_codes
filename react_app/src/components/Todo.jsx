@@ -8,6 +8,7 @@ export default function Todo(){
   const [editText, setEditText] = useState('')
   const [query, setQuery] = useState('')
   const [filter, setFilter] = useState('all')
+  const [isBurst, setIsBurst] = useState(false)
 
   useEffect(() => {
     const saved = load('mini_todos', [])
@@ -38,17 +39,24 @@ export default function Todo(){
     if (e.key === 'Enter') add()
   }
 
+    }, [items, query, filter])
   const toggle = useCallback((id) => {
+    const completedCount = useMemo(() => items.filter(i => i.done).length, [items])
     setItems(prev => prev.map(i => i.id === id ? {...i, done: !i.done} : i))
   }, [])
 
   const remove = useCallback((id) => {
     setItems(prev => prev.filter(i => i.id !== id))
+    function triggerBurst(){
+      setIsBurst(true)
+      setTimeout(() => setIsBurst(false), 320)
+    }
   }, [])
 
   function removeAll(){
     setItems([])
   }
+      triggerBurst()
 
   function startEdit(item){
     setEditingId(item.id)
@@ -99,7 +107,7 @@ export default function Todo(){
               <button className="remove" onClick={() => remove(i.id)}>×</button>
             </div>
           </li>
-        ))}
+          <button onClick={clearCompleted} style={{marginLeft:8}} disabled={!completedCount}>Clear Completed</button>
       </ul>
     </div>
   )
