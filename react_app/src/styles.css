@@ -44,6 +44,9 @@ li .remove{margin-left:8px}
 .add-burst::after{content:'';position:absolute;left:50%;top:50%;width:8px;height:8px;border-radius:50%;background:rgba(0,123,255,0.12);transform:translate(-50%,-50%) scale(0);opacity:0;transition:transform .3s ease, opacity .3s}
 .add-burst.play::after{transform:translate(-50%,-50%) scale(6);opacity:1}
 
+/* Feb 24: add-burst class applied to button for visual effect */
+.add-burst.play{box-shadow:0 6px 14px rgba(0,123,255,0.06)}
+
 /* Dec: polish spacing */
 @media (max-width:480px){
 	.app{margin:12px;padding:12px}

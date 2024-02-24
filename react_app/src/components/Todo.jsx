@@ -78,7 +78,7 @@ export default function Todo(){
       <div aria-live="polite" className="sr-only">{items.length} items</div>
       <div className="input-row">
           <input id="todo-input" value={text} onChange={e => setText(e.target.value)} onKeyDown={handleKeyAdd} placeholder="Add todo..." />
-        <button id="add-todo" aria-label="Add todo" onClick={add}>Add</button>
+        <button id="add-todo" aria-label="Add todo" onClick={add} className={`add-burst ${isBurst ? 'play' : ''}`}>Add</button>
       </div>
       <div className="input-row">
         <input id="todo-search" value={query} onChange={e => setQuery(e.target.value)} placeholder="Search todos..." />
