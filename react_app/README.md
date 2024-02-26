@@ -33,4 +33,7 @@ Quick keyboard tips:
 
 - Feb: added search/filter controls to todos and Clear Completed button
 
+- Feb 22–Feb 28: final February polish — bugfixes, add-button animation, extra tests, and docs updates
+
+
 
