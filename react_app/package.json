@@ -1,6 +1,6 @@
 {
   "name": "mini-react-app",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Mini React App (todos + notes)",
   "private": true,
   "scripts": {
