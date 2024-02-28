@@ -18,3 +18,4 @@
 - Feb 02–Feb 08: todo search/filter, Clear Completed, and test additions
 - Feb 10–Feb 15: small UI polish, in-app keyboard hint, version bump, util added
 - Feb 16–Feb 20: add-button polish, a11y list roles, small a11y/ui tweaks
+ - Feb 22–Feb 28: final polish — bugfixes, add-button animation, extra tests and docs
