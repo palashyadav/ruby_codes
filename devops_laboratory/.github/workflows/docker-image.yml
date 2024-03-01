@@ -1,0 +1,15 @@
+name: Build and push Docker image
+
+on:
+  push:
+    paths:
+      - 'devops_laboratory/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image
+        run: |
+          docker build -t devops-lab:ci ./devops_laboratory
